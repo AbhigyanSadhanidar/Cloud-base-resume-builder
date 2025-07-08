@@ -51,9 +51,8 @@ const Index = () => {
     try {
       console.log("input data", payload);
 
-      const response = await fetch(
-        "https://30chj74s89.execute-api.ap-south-1.amazonaws.com/prod/resume",
-        {
+      const response = await fetch(import.meta.env.VITE_API_URL, {
+
           method: "POST",
           headers: {
             "Content-Type": "application/json",

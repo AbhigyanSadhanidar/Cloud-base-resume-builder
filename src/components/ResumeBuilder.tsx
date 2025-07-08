@@ -243,9 +243,8 @@ const ResumeBuilder: React.FC<ResumeBuilderProps> = ({ onBack }) => {
 
       alert("Generating AI summary...");
 
-      const response = await fetch(
-        "https://5736955a-4256-49d5-8849-e7233097d0e9.us-east-1.cloud.genez.io/response",
-        {
+      const response = await fetch(import.meta.env.VITE_AI_SUMMARY_API, {
+
           method: "POST",
           headers: {
             "Content-Type": "application/json",
