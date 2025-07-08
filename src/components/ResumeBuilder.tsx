@@ -373,9 +373,8 @@ const ResumeBuilder: React.FC<ResumeBuilderProps> = ({ onBack }) => {
       const base64Data = pdf.output("datauristring"); // for upload
 
       // Step 5: Upload to backend
-      const response = await fetch(
-        "https://30chj74s89.execute-api.ap-south-1.amazonaws.com/prod/generate-pdf",
-        {
+      const response = await fetch(import.meta.env.VITE_PDF_UPLOAD_API, {
+
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -413,9 +412,8 @@ const ResumeBuilder: React.FC<ResumeBuilderProps> = ({ onBack }) => {
     try {
       console.log("Sending resumeData:", resumeData);
 
-      const response = await fetch(
-        "https://30chj74s89.execute-api.ap-south-1.amazonaws.com/prod/resume",
-        {
+      const response = await fetch(import.meta.env.VITE_RESUME_SAVE_API, {
+
           method: "POST",
           headers: {
             "Content-Type": "application/json",
